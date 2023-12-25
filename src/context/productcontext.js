@@ -18,6 +18,9 @@ const initialState ={
     isError: false,
     products: [],
     featureProducts:[],
+    isSingleLoading: false,
+    singleProduct: {},
+
 };
 
 
@@ -42,6 +45,23 @@ const AppProvider = ( {children}) => {  // kind of redux er moto statemanagement
             dispatch({ type: "API_ERROR" });
         }
     };
+
+    //2nd api call for single product
+    const getSingleProduct = async(url) => {
+        dispatch({ type: "SET_SINGLE_LOADING"});
+        try{
+            const res = await axios.get(url);
+            const singleProduct = await res.data;
+            dispatch({type:"SET_SSINGLE_PRODUCT", payload: singleProduct});
+            
+        }catch(err){
+            dispatch({ type: "SET_SINGLE_ERROR" });
+        }
+        
+    }
+
+
+
     useEffect(()=>{
         getProducts(API);
     }, []);
