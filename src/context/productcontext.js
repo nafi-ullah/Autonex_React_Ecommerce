@@ -5,11 +5,26 @@
 // onno component theke abr seta import kore use korte hobe.
 
 
-import { createContext , useContext} from "react";
+import { createContext , useContext, useEffect} from "react";
+import axios from "axios";
 
 const AppContext = createContext();
 
-const AppProvider = ( {children}) => {  // kind of redux er moto
+const API = "https://api.pujakaitem.com/api/products";
+
+const AppProvider = ( {children}) => {  // kind of redux er moto statemanagement
+
+    const getProducts = async (url) => {
+        const res = await axios.get(url);
+        const products = await res.data;
+        console.log(" products ", products);
+        
+    };
+    useEffect(()=>{
+        getProducts(API);
+    }, []);
+
+
         return (<AppContext.Provider value="autonex">  
             {children}
         </AppContext.Provider >
