@@ -4,6 +4,7 @@ import HeroSection from "./components/HeroSection";
 //import Dummy from "./components/Dummy";
 import Services from "./components/Services";
 import Trusted from "./components/Trusted";
+import FeatureProducts from "./components/FeatureProducts";
 
 const Home = () => {
     const data = {
@@ -14,6 +15,7 @@ const Home = () => {
       
       <HeroSection myData={data} />
       <Services></Services>
+      <FeatureProducts></FeatureProducts>
       <Trusted></Trusted>
       </>;
 };

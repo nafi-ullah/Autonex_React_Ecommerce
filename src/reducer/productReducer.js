@@ -14,15 +14,15 @@ const ProductReducer = (state, action) => {
             });
 
             return {
-                ... state,
+                ...state,
                 isLoading: false,
                 products: action.payload,
-                featureProducts: [],
+                featureProducts: featureData,
             }
 
         case "API_ERROR":
             return {
-                    ... state,
+                    ...state,
                     isLoading: true
             };
        
