@@ -6,9 +6,24 @@ const HeroSection = ({ myData }) => {
   const { name } = myData;
  const Wrapper = styled.section`
   padding: 12rem 0;
-  .grid {
+  .griding {
     display: flex;
     justify-content: space-between;
+  }
+
+  .container {
+    max-width: 120rem;
+    margin: 0 auto;
+  }
+  
+  .grid {
+    display: grid;
+    gap: 9rem;
+  }
+  
+  .grid-two-column {
+    grid-template-columns: repeat(2, 1fr);
+  
   }
  
 
@@ -91,7 +106,7 @@ const HeroSection = ({ myData }) => {
               and technology excellence.
             </p>
             <NavLink>
-              <Button>show now</Button>
+              <Button>Shop now</Button>
             </NavLink>
           </div>
           {/* our homepage image  */}
