@@ -3,9 +3,11 @@ import styled from "styled-components";
 
 const MyImage = ({ imgs = [{ url: "" }] }) => {
   const [mainImage, setMainImage] = useState(imgs[0]);
+  //setMainImage a kisu change korle seta current updated data hoye jabe.
 
   return (
     <Wrapper>
+        {/*column 2taii bt 4 vaager ekvaag baki 3ta image, ar bakita full image*/}
       <div className="grid grid-four-column">
         {imgs.map((curElm, index) => {
           return (

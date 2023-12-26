@@ -9,6 +9,7 @@ import FormatPrice from "./components/FormatPrice.js";
 import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 import Star from "./components/Star.js";
+import AddToCart from "./components/AddToCart.js";
 
 
 const API = "https://api.pujakaitem.com/api/products";
@@ -106,6 +107,8 @@ const SingleProduct = () => {
                 Brand :<span> {company} </span>
               </p>
             </div>
+            <hr />
+            {stock > 0 && <AddToCart product={singleProduct} />}
           </div>
         </div>
       </Container>
