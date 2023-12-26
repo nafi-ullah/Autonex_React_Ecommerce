@@ -1,7 +1,58 @@
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useProductContext } from "./context/productcontext";
+import PageNavigation from "./components/PageNavigation";
+import MyImage from "./components/MyImage.js";
+import { Container } from "./styles/Container";
+import FormatPrice from "./components/FormatPrice.js";
+import { MdSecurity } from "react-icons/md";
+import { TbTruckDelivery, TbReplace } from "react-icons/tb";
+
+
+const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
-    return <Wrapper></Wrapper>;
+
+  const {getSingleProduct, isSingleLoading, singleProduct} = useProductContext();
+  const { id } = useParams();
+
+  const {
+    id: alias,
+    name,
+    company,
+    price,
+    description,
+    category,
+    stock,
+    stars,
+    reviews,
+    image,
+  } = singleProduct;
+  
+// ekhan theke je id pacchi seta single product er jnno lagbe, cz etai product er api address a thakbe.
+
+// useEffect hook lagbe jokhn ei id er data gula lagbe. 
+  useEffect(()=>{
+    // functionta product context theke paisi
+    // ekek id jehetu ek 
+      getSingleProduct(`${API}?id=${id}`);
+  },[]);
+ // console.log("singproduct", singleProduct);
+
+ if (isSingleLoading) {
+  return <div className="page_loading">Loading.....</div>;
+}
+
+
+
+    return (
+      <Wrapper>
+      <PageNavigation title={name} />
+      
+    </Wrapper>
+
+    );
 }; 
 
 
@@ -9,6 +60,12 @@ const Wrapper = styled.section`
   .container {
     padding: 9rem 0;
   }
+
+  .product_images {
+    display: flex;
+    align-items: center;
+  }
+
   .product-data {
     display: flex;
     flex-direction: column;
@@ -73,6 +130,12 @@ const Wrapper = styled.section`
     align-items: center;
   }
 
+  .page_loading {
+    font-size: 3.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     padding: 0 2.4rem;
   }

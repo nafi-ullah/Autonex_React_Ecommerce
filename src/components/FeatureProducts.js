@@ -10,7 +10,7 @@ const FeatureProducts = () => {
     const { isLoading, featureProducts } = useProductContext();
     //console.log("my feature data", featureProducts);
 
-    if(isLoading){
+    if(isLoading){ //errir shown
         return <>
         <img src="./public/images/loading.gif"></img>
         </>;

@@ -52,7 +52,7 @@ const AppProvider = ( {children}) => {  // kind of redux er moto statemanagement
         try{
             const res = await axios.get(url);
             const singleProduct = await res.data;
-            dispatch({type:"SET_SSINGLE_PRODUCT", payload: singleProduct});
+            dispatch({type:"SET_SINGLE_PRODUCT", payload: singleProduct});
             
         }catch(err){
             dispatch({ type: "SET_SINGLE_ERROR" });
@@ -61,13 +61,12 @@ const AppProvider = ( {children}) => {  // kind of redux er moto statemanagement
     }
 
 
-
     useEffect(()=>{
         getProducts(API);
     }, []);
 
             //usereducer er sob data ekhane eshe porbe.
-        return (<AppContext.Provider value={{...state}}>  
+        return (<AppContext.Provider value={{...state, getSingleProduct}}>  
             {children}
         </AppContext.Provider >
         );

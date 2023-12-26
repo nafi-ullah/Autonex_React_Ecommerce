@@ -5,6 +5,9 @@ import FormatPrice from "./FormatPrice";
 const Product = (curElem) => {
   const { id, name, image, price, category } = curElem;
   return (
+    //product gula to database er data thekei show kortese.
+    // database er datar sathe id o ashe
+    // jokhn ee id ta ashbe tokhn oi id theke product api a redirect kora jabe.
     <NavLink to={`/singleproduct/${id}`}>
       <div className="card">
         <figure>
