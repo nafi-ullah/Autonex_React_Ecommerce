@@ -44,6 +44,10 @@ const Wrapper = styled.section`
   .grid {
     gap: 3.2rem;
   }
+  .grid-two-column {
+    grid-template-columns: repeat(2, 1fr);
+  
+  }
 
   figure {
     width: auto;

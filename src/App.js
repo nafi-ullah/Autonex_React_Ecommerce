@@ -14,6 +14,9 @@ import Footer from "./components/Footer"
 
 
 const App = () => {
+ 
+
+
   const theme = {
     colors: {
       heading: "rgb(24 24 29)",
@@ -46,6 +49,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
     <Router>
       <GlobalStyle />
+     
       <Header />
         <Routes>
             <Route path="/" element= {<Home/>}> </Route>
@@ -57,7 +61,9 @@ const App = () => {
             <Route path="*" element= {<ErrorPage/>}> </Route>
              
           </Routes>
+         
         <Footer />
+        
       </Router>
       </ThemeProvider>
   );

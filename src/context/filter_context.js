@@ -53,7 +53,7 @@ export const FilterContextProvider = ({ children }) => {
   useEffect(() => {
     dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });
   }, [products]);
-
+// ekhane array er moddhe products rakha hoise, jokhn product a data ashbe tokhn ee jeno show kore
   return (
     <FilterContext.Provider
       value={{
